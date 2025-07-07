@@ -4,10 +4,23 @@
     <link rel="stylesheet" href="/build/css/RegStyle.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
 </head>
 <body>
-    <div>
+
+     <div class="returnMessage">
+
+             @if(session('error'))
+                <div class="alertMessage">
+                {{ session('error') }}
+                </div>
+
+            @endif
+        </div>
+       
+
+    <div class="cover">
+       <div class="formStyle">
         <form action="{{ route('register') }}" method="POST">
             @csrf    
 
@@ -18,18 +31,18 @@
             </article>
 
             <article>
-            <label>Email address</label>
+            <label>Email</label>
             <input type="text" name="email" id="email" placeholder="Your email address"><br>
             </article>
 
             <article>
             <label>Registration number</label>
-            <input type="text" name="regNumber" id="regNumber" placeholder="Your Registration number"><br>
+            <input type="text" name="regNumber" id="regNumber" placeholder="Optional"><br>
             </article>
 
             <article>
             <label>Phone number</label>
-            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Your Registration number"><br>
+            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Valid phone number only"><br>
             </article>
 
             <article>
@@ -37,26 +50,16 @@
             <input type="password" name="password" id="password" placeholder="Atleast 8 characters"><br>
             </article>
 
-            <article>
-            <label>Confirm</label>
-            <input type="password" name="password" id="password" placeholder="Confirm your password"><br>
-            </article>
-            
-            
-            <article>
-            <label for="level">Education level</label>
-            <select name="level" id="level">
-                <option disabled selected></option>
-                <option>Non-degree</option>
-                <option>Undergraduate</option>
-                <option>Post graduate</option>
-                <option>PhD</option>
-            </select><br>
-            </article>
-
+        
             <button>Submit</button>
 
         </form>
+    </div>
+
+    <div class="reminder">
+    <li class="alternation">Oops! you have an account, then <a href="{{ route('login')}}">log in</li>
+    <li class="homing"><a href="{{ route('home') }}" class="homing">Home</a></li>
+    </div>
     </div>
 </body>
 </html>
