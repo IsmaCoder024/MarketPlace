@@ -12,7 +12,7 @@
 
         <div class="returnMessage">
 
-        @if(session('logError'))
+        @if(session('logError'))  
             <div class="alertMessage">
                 {{ session('logError') }}
             </div>

@@ -29,6 +29,7 @@ class User extends Authenticatable
             'regNumber',
             'phoneNumber',
             'username',
+            'businessName',
             'password',
             'role'
             

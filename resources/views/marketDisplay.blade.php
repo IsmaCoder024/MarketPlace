@@ -31,8 +31,8 @@
             
             <span class="details">
             <li>Price : <span>TZS {{ $market->price }}</span></li>
-            <li>Contacts : <span>+{{ $market->user->phoneNumber }}</span></li>
-            <li>Posted by : <span>{{ $market->user->lastName }}</span></li>
+            <li>Contacts : <span>{{ $market->user->phoneNumber }}</span></li>
+            <li>Posted by : <span>{{ $market->user->businessName ?: $market->user->lastName}}</span></li>
             <h3><a href="https:wa.me/{{ $market->user->phoneNumber }}? text={{ urlencode('Hello, I saw your ad for ' .$market->title. 'Is it still available?') }}" target="_blank">Order now.</a></h3>
             </span>
             

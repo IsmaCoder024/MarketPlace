@@ -6,9 +6,9 @@ use App\Http\Controllers\MarketController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //homepage
 Route::get('/home', function() {
@@ -55,7 +55,7 @@ Route::get('/AdminDeleted' , [MarketController::class,'adminDel'])->name('AdminD
 
 
 
-
+  
 //market routes
 
 //seller

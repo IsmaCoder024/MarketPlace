@@ -9,12 +9,18 @@
 <body>
     <div class="admin">
         
-    <li><a href="{{ route('home') }}">Home</a></li> 
+    <li class="home"><a href="{{ route('home') }}">Home</a></li>
+
+    @if(session('logError'))
+            <div class="logError">
+                {{ session('logError') }}
+            </div>
+            @endif
 
     <form method="POST" action =" {{ route('admin') }} ">
     @csrf
     
-    <input type="text" name="username" placeholder="Username"></input><br><br>
+    <input type="text" name="email" placeholder="Email"></input><br><br>
 
     <input type="password" name="password" placeholder="Password"></body><br><br>
 

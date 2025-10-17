@@ -31,7 +31,6 @@
             <img src="{{ asset('storage/' . $market->image_path) }}" alt="Advert image here">
             
             <span class="details">
-            <li>Reason : This market was deleted because {{ $market->delReason }}</li><br><br>
             <li>Price : TZS {{ $market->price }}</li>
             <li>SellerID : {{ $market->user_id }}</li>
             

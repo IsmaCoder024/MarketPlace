@@ -11,6 +11,10 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     //admin markets approving
     public function pendings(){
@@ -18,7 +22,7 @@ class AdminController extends Controller
         ->orderBy('created_at', 'desc')->get(['id','title', 'image_path', 'description']);
         return view('adminApprove',compact('markets'));
 
-    }
+    }  
 
     public function approving(Request $request,$id){
 

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('regNumber');
             $table->string('phoneNumber');
             $table->string('password');
-            $table->string('username')->unique()->nullable();
+            $table->string('')->unique();
             $table->enum('role', ['admin', 'user'])->default('user'); 
             $table->timestamps();
         });

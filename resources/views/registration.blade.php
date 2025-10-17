@@ -46,6 +46,11 @@
             </article>
 
             <article>
+            <label>Business name</label>
+            <input type="text" name="businessName" id="businessName" placeholder="How should your customers know you? (optional)"><br>
+            </article>
+
+            <article>
             <label>Password</label>
             <input type="password" name="password" id="password" placeholder="Atleast 8 characters"><br>
             </article>

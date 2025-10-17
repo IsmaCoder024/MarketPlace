@@ -44,7 +44,7 @@ class MarketController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->back()->with('uploaded', 'Advertisement succesfull uploaded');
+        return redirect()->back()->with('uploaded', 'Advertisement succesfull uploaded, Please wait for Admin approval promptly');
 
     }
 
