@@ -26,5 +26,6 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 EXPOSE 10000
 
 # Start Laravel
-CMD php -S 0.0.0.0:$PORT -t public
+CMD php -S 0.0.0.0:${PORT:-8000} -t public
+
 
