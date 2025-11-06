@@ -23,18 +23,23 @@ WORKDIR /var/www/html
 # Copy project files
 COPY . .
 
-# Install PHP dependencies
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Build frontend assets
+# Build frontend assets (if you use Vite)
 RUN npm install
 RUN npm run build
 
-# Set permissions
+# Set correct Apache DocumentRoot
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+
+# Fix permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Expose port
+# Expose port 8080 (Render will detect automatically)
 EXPOSE 8080
 
 # Start Apache
