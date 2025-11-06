@@ -17,7 +17,7 @@
             </div>
             @endif
 
-    <form method="POST" action =" {{ route('admin') }} ">
+    <form method="POST" action =" {{ route('admin.log') }} ">
     @csrf
     
     <input type="text" name="email" placeholder="Email"></input><br><br>

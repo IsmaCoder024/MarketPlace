@@ -44,7 +44,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
 
         ]);
-
+  
         return redirect()->route('login')->with('success', 'Registration successful, you may now login.');
 
         if ($validator->fails()) {
@@ -100,7 +100,7 @@ class UserController extends Controller
         }
 
 
-
+ 
 
     }
 

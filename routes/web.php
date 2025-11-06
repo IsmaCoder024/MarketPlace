@@ -40,7 +40,7 @@ Route::get('/logout',function(){
 
 //admin routes
 Route::get('/admin', [UserController::class,'adminShow'])->name('admin');
-Route::post('/admin', [UserController::class,'adminLog'])->name('admin');
+Route::post('/admin', [UserController::class,'adminLog'])->name('admin.log');
 
 Route::get('/adminNav', function() {
     return view('adminNavigation');
