@@ -24,16 +24,15 @@ RUN composer install --no-dev --optimize-autoloader
 # Build frontend (if exists)
 RUN npm install && npm run build || echo "No build step"
 
-# Set DocumentRoot to /public only ONCE
-RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' \
-        /etc/apache2/sites-available/000-default.conf
+# Set Apache DocumentRoot to Laravel /public
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
-# Allow .htaccess inside /public
-RUN sed -i '/DocumentRoot/a <Directory /var/www/html/public>\n\
+# Allow .htaccess
+RUN sed -i '/DocumentRoot \/var\/www\/html\/public/a <Directory /var/www/html/public>\n\
     AllowOverride All\n\
     Require all granted\n\
-</Directory>' \
-    /etc/apache2/sites-available/000-default.conf
+</Directory>' /etc/apache2/sites-available/000-default.conf
+
 
 # Permissions
 RUN chown -R www-data:www-data storage bootstrap/cache
